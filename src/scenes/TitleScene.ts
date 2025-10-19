@@ -2,7 +2,12 @@
 import Phaser from "phaser";
 import { Save } from "../systems/SaveManager";
 
-export enum GameMode { MORNING = "morning", NIGHT = "night", DAY = "day" }
+export const GameMode = {
+  MORNING: "morning",
+  NIGHT: "night",
+  DAY: "day",
+} as const;
+export type GameMode = typeof GameMode[keyof typeof GameMode];
 
 export default class TitleScene extends Phaser.Scene {
   constructor() { super("Title"); }
